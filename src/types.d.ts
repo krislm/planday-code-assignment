@@ -1,7 +1,7 @@
 export type Image = {
     title: string;
     link: string;
-    media: Object;
+    media: {m: string};
     date_taken: string;
     description: string;
     published: string;

@@ -13,7 +13,9 @@ type ImageProps = {
 
 const ImageComponent: React.FC<ImageProps> = ({ image, className }) => {
     return (
-        <img src={image.media.m} alt={image.title} />
+        <div className={className}>
+            <img src={image.media.m} alt={image.title} />
+        </div>
     );
 }
 

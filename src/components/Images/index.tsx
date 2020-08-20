@@ -28,7 +28,7 @@ const ImagesComponent: React.FC<Props> = ({ fetchImages, images }) => {
     return (
         <div className="list">
             {
-                images.images.map((image) => <ImageComponent key={image.author_id} image={image} />)
+                images.images.map((image) => <ImageComponent key={image.author_id} className="list__item" image={image} />)
             }
         </div>
     );

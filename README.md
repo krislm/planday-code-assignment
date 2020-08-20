@@ -1,3 +1,11 @@
+# Planday Frontend Coding Challenge!
+
+## Feature 1
+List view of [public image feed](https://www.flickr.com/services/feeds/photos_public.gne?format=json) from flickr 
+
+## Feature 2
+Search images by tag names
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

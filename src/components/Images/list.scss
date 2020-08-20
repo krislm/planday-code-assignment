@@ -1,3 +1,5 @@
+@import "../../styles/index";
+
 .list {
   display: grid;
   grid-gap: 10px;
@@ -5,12 +7,17 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
   &__item {
-    height: 15rem;
+    //height: 15rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 2rem;
+    background-color: $white;
+    transition: background-color .5s linear;
     &:hover {
       cursor: pointer;
+      background-color: $hover-color;
     }
   }
 }

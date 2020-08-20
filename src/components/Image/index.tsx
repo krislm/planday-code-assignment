@@ -1,10 +1,7 @@
 import React from 'react';
-import {RootState} from '../../reducers';
+import moment from 'moment';
 import { Image } from '../../types.d';
-
-/*const mapStateToProps = (state: RootState) => ({ image: Image });
-
-type Props = ReturnType<typeof mapStateToProps>;*/
+import './image.scss';
 
 type ImageProps = {
     image: Image;
@@ -12,9 +9,13 @@ type ImageProps = {
 };
 
 const ImageComponent: React.FC<ImageProps> = ({ image, className }) => {
+    const classNames = ['image'];
+    if (className) classNames.push(className);
     return (
-        <div className={className}>
-            <img src={image.media.m} alt={image.title} />
+        <div className={classNames.join(' ')}>
+            <img className="image__element" src={image.media.m} alt={image.title} />
+            <span className="image__author">{image.author}</span>
+            <span className="image__tags">{image.tags}</span>
         </div>
     );
 }

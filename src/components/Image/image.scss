@@ -1,0 +1,16 @@
+.image {
+  &__element {}
+  &__author {
+    opacity: 0;
+    transition: opacity .5s linear;
+  }
+  &__tags {
+    display: none;
+  }
+
+  &:hover {
+    .image__author {
+      opacity: 1;
+    }
+  }
+}

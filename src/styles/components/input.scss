@@ -1,0 +1,11 @@
+input, .input {
+  &[type="text"] {
+    background-color: white;
+    padding: 10px 5px;
+    border-radius: 8px;
+    border-style: none;
+    &:focus {
+      outline: none;
+    }
+  }
+}

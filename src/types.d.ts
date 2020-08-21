@@ -17,4 +17,4 @@ export type ImagesState = {
 
 export type ImagesAction = ReturnType<typeof setImages>;
 
-export const SET_PROPERTIES: string = 'SET_PROPERTIES';
+export const SET_IMAGES: string = 'SET_IMAGES';

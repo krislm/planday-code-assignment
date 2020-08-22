@@ -236,11 +236,9 @@ const dummyData: Image[] = [
     }
 }*/
 
-export function fetchImages(searchTerm: string = '') {
+function fetchImages(searchTerm: string = '') {
     if (searchTerm.length > 0) {
-        console.log(1, searchTerm)
         return async (dispatch: Dispatch<AnyAction>) => {
-            console.log(2)
             await dispatch(filterImages(searchTerm));
         }
     }
@@ -253,10 +251,12 @@ export function fetchImages(searchTerm: string = '') {
 }
 
 function filterImages(searchTerm: string) {
-    console.log(3)
+    console.log(3, searchTerm)
     return typedAction(SET_IMAGES, {search: searchTerm})
 }
 
 function setImages(images: Image[]) {
     return typedAction(SET_IMAGES, images);
 }
+
+export { filterImages, fetchImages };

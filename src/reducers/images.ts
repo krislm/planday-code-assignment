@@ -2,11 +2,11 @@ import {ImagesAction, ImagesState, SET_IMAGES, Image} from '../types.d';
 
 const initialState: ImagesState = {
     images: [],
+    filteredImages: [],
     loading: false,
 }
 
 export function imagesReducer(state: ImagesState = initialState, action: ImagesAction): ImagesState {
-    console.log(action);
     switch (action.type) {
         case SET_IMAGES:
             if (action.payload.search && action.payload.search.length > 3) {

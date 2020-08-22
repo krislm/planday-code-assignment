@@ -12,6 +12,7 @@ export type Image = {
 
 export type ImagesState = {
     images: Image[];
+    filteredImages: Image[];
     loading: boolean;
 }
 

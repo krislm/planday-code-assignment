@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
-import {filterImages} from '../../actions';
+import { filterImages, resetFilter } from '../../actions';
 
 type Props = {};
 
@@ -11,12 +11,21 @@ const SearchComponent: React.FC<Props> = () => {
 
     return (
         <div>
-            <input type="text" value={searchTerm} onChange={(event) => {
-                setSearchTerm(event.target.value);
-                if (searchTerm.length > 3) {
-                    dispatch(filterImages(event.target.value));
+            <input
+                type="text"
+                value={searchTerm}
+                placeholder={"e.g. \"firestorm\""}
+                onChange={
+                    (event) => {
+                        setSearchTerm(event.target.value);
+                        if (searchTerm.length > 3) {
+                            dispatch(filterImages(event.target.value));
+                        } else if (searchTerm.length === 0) {
+                            dispatch(resetFilter());
+                        }
+                    }
                 }
-            }} />
+            />
         </div>
     );
 }

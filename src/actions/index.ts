@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { AnyAction, Dispatch } from 'redux';
 import { typedAction } from './helpers';
-import { Image, SET_IMAGES } from '../types.d';
+import { FILTER_IMAGES, Image, RESET_FILTER, SET_IMAGES } from '../types.d';
 
 const dummyData: Image[] = [
         {
@@ -226,22 +226,7 @@ const dummyData: Image[] = [
         }
     ];
 
-/*export function filterImages(searchTerm: string) {
-    console.log(1, searchTerm)
-    if (searchTerm.length > 3) {
-        console.log(2, searchTerm)
-        return (dispatch: Dispatch<AnyAction>) => {
-            dispatch(setFilteredImages(searchTerm))
-        }
-    }
-}*/
-
-function fetchImages(searchTerm: string = '') {
-    if (searchTerm.length > 0) {
-        return async (dispatch: Dispatch<AnyAction>) => {
-            await dispatch(filterImages(searchTerm));
-        }
-    }
+function fetchImages() {
     return async (dispatch: Dispatch<AnyAction>) => {
         const images: Image[] = await axios.get('https://flickr.com/services/feeds/photos_public.gne?format=json', {headers: {'Access-Control-Allow-Origin': '*'} })
             .then((response: any) => response.items)
@@ -251,12 +236,16 @@ function fetchImages(searchTerm: string = '') {
 }
 
 function filterImages(searchTerm: string) {
-    console.log(3, searchTerm)
-    return typedAction(SET_IMAGES, {search: searchTerm})
+    return typedAction(FILTER_IMAGES, {search: searchTerm})
+}
+
+function resetFilter() {
+    console.log('reset')
+    return typedAction(RESET_FILTER);
 }
 
 function setImages(images: Image[]) {
     return typedAction(SET_IMAGES, images);
 }
 
-export { filterImages, fetchImages };
+export { filterImages, resetFilter, fetchImages };

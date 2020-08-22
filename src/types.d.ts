@@ -19,3 +19,5 @@ export type ImagesState = {
 export type ImagesAction = ReturnType<typeof setImages>;
 
 export const SET_IMAGES: string = 'SET_IMAGES';
+export const FILTER_IMAGES: string = 'FILTER_IMAGES';
+export const RESET_FILTER: string = 'RESET_FILTER';

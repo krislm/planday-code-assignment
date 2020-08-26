@@ -28,6 +28,11 @@ Architecture:
         
             image.scss
 
+### Responsive
+Add breakpoints variables and mixins. Keep it simple though considering project scale.
+
+### CORS
+Fix access server side.
 
 ## Available Scripts
 
